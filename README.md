@@ -18,7 +18,9 @@ Members referenced such as *appId* are replaced with the value on the environmen
 Output from the build is placed in the */bin/ENVIRONMENT_NAME* directory and the snippets can be run and debugged from there. Notice that the variables in the snippet with the syntax for injection are now replaced with the members of the configuration file.
 
 ##Deploying
-Deploying the code works in the same way as building the code. The deployment script works off the environment variables and is why the master key is a member of each configuration. It is advised to continue ignoreing the *config.js* file in order to keey the master keys and application id off of the git repository.
+Deploying the code works in the same way as building the code. The deployment script works off the environment variables and is why the master key is a member of each configuration. It is advised to locally ignore changes to the *config.js* file in order to keey the master keys and application id off of the git repository. Locally ignoring changes to a git tracked file can be done with the following command:
+
+    git update-index --assume-unchanged config.js
 
 Deploying snippets to an environment is done with the following command:
 
