@@ -1,6 +1,14 @@
 # SnippetSamples
 Sample project which demonstrates a snippet workflow with CloudMine server code execution. Includes a configuration file for multiple environments, and a Grunt build file for deploying to different environment.
 
+##Project Initialization
+1. Clone the repository locally.
+2. Install the node modules which are pinned to the correct versions.
+
+    npm install
+
+3. Follow the configuration, build, and deployment instructions for establishing a workflow.
+
 ##Configuration
 Managing the configuration of the snippets for an application resides in the *config.js* file. There is two variables at the top for configurations specific to third party libraries which then get inserted into the configuration JSON shapes for the environments. This snippet library has three environments for which application ID, API keys and a master key can be setup. 
 
