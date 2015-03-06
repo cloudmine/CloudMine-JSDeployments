@@ -1,7 +1,6 @@
 // third party node dependencies reference:
 // https://cloudmine.me/docs/servercode/javascript#js_api
 var cloudmine = require('cloudmine');
-var Q = require('q');
 var rest = require('restler');
 
 // environment variables generated on render and deploy from config.js
@@ -11,7 +10,7 @@ var ePhiAPIKey = "<%= ePhiKey %>";
 
 // CloudMine SDK for working with PII data
 var wsPII = new cloudmine.WebService({
-  appname: "FirstApp",
+  appname: "SnippetDemo",
   appversion: "1.0",
   appid: applicationID,
   apikey: piiAPIKey,
@@ -19,7 +18,7 @@ var wsPII = new cloudmine.WebService({
 });
 // CloudMine SDK for working with ePHI data
 var wsPHI = new cloudmine.WebService({
-  appname: "FirstApp",
+  appname: "SnippetDemo",
   appversion: "1.0",
   appid: applicationID,
   apikey: ePhiAPIKey,

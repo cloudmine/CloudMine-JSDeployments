@@ -7,11 +7,11 @@ var twilio = require('twilio');
 var applicationID = "<%= appId %>";
 var piiAPIKey = "<%= piiKey %>";
 var ePhiAPIKey = "<%= ePhiKey %>";
-var twilioConf = "<%= twilioConf";
+var twilioConf = "<%= twilioConf %>";
 
 // CloudMine SDK for working with PII data
 var wsPII = new cloudmine.WebService({
-  appname: "FirstApp",
+  appname: "SnippetDemo",
   appversion: "1.0",
   appid: applicationID,
   apikey: piiAPIKey,
@@ -20,7 +20,7 @@ var wsPII = new cloudmine.WebService({
 });
 // CloudMine SDK for working with ePHI data
 var wsPHI = new cloudmine.WebService({
-  appname: "FirstApp",
+  appname: "SnippetDemo",
   appversion: "1.0",
   appid: applicationID,
   apikey: ePhiAPIKey,
@@ -50,7 +50,7 @@ if (typeof(exit) === 'undefined') {
 
 wsPII.session_token = data.session_token;
 
-wsPII.search('[__class__="PII"', {}).on("success", function (data, response) {
+wsPII.search('[__class__= "PII"', {}).on("success", function (data, response) {
   // twilio constants
   var accountSid = twilioConf.accountSid;
   var authToken = twilioConf.authToken;

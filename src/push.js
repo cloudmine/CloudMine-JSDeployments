@@ -9,7 +9,7 @@ var ePhiAPIKey = "<%= ePhiKey %>";
 
 // CloudMine SDK for working with PII data
 var wsPII = new cloudmine.WebService({
-  appname: "FirstApp",
+  appname: "SnippetDemo",
   appversion: "1.0",
   appid: applicationID,
   apikey: piiAPIKey,
@@ -17,7 +17,7 @@ var wsPII = new cloudmine.WebService({
 });
 // CloudMine SDK for working with ePHI data
 var wsPHI = new cloudmine.WebService({
-  appname: "FirstApp",
+  appname: "SnippetDemo",
   appversion: "1.0",
   appid: applicationID,
   apikey: ePhiAPIKey,
