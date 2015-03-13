@@ -14,8 +14,8 @@ var cloudmine = require('cloudmine');
 var test = require("tap").test;
 
 // environment variables generated on render and deploy from config.js
-var applicationID = '9ff05619b6894397b503abd7f425a7fd';
-var piiAPIKey = 'EED575370F834E84B4048887EC942158';
+var applicationID = 'f60f2cb111514e809054b06282909307';
+var piiAPIKey = 'd67e7f788b1c4734b263e5ec81f650c4';
 
 // a test user we will use for this workflow
 var userCredentials = {
@@ -46,8 +46,8 @@ var wsPII = new cloudmine.WebService({
 
 wsPII.login(userCredentials).on("success", function (data, response) {
     // inject responses in to credentials object
-  credentials.ws = ws;
-  console.log(JSON.stringify(response, null, 2));
+  userCredentials.wsPII = wsPII;
+  //console.log(JSON.stringify(response, null, 2));
 }).on("error", function (err) {
   console.log(JSON.stringify(err, null, 2));
 });
