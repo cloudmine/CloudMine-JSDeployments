@@ -51,7 +51,14 @@ wsMaster.login(data.params.credentials).on("success", function (data, response) 
     // append the success and id to the results
     results.success.push('success creating user object');
     results.pii_results = data;
-    exit(results);
+    wsMaster.set('applevellastusercreated', { 'date_last_created': new Date() }, {app_level: true}).on('success', function (data) {
+      results.success.push('success creating app level object');
+      results.app_level_results = data;
+      exit(results);
+    }).on('failed', function (data) {
+      results.errors.push('failed creating app level object');
+      exit(results);
+    });
   }).on('failed', function (data) {
     results.errors.push('failed creating user object');
     exit(results);
