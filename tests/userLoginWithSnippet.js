@@ -1,53 +1,86 @@
 /**
+ * Created by ryandonahue on 3/6/15.
+ */
+/**
  * Created by Ryan Donahue.
  *
  * This sample shows a few different things regarding snippet execution
- * alongside user login. An existing user is logged in, and a snippet is run
- * to illustrate some basic user object creation with the new
- * user. Many apps require some stub configurations which make sense to be created
- * alongside the user.
+ * alongside user login. On user login a snippet is configured
+ * to run which will initialize some objects specific to the user
+ * around login metrics The API call returns the result of both the user
+ * login call  and the snippet call with only one trip to the server. The
+ * snippet being run is titled userLogin.js and located within the
+ * /src folder of this repository.
  *
- * Sample also illustrates a workflow for doing integration tests on a snippets
- * project.
+ * Instructions:
+ * Ensure the application ID and master key are set in the config.js
+ * file and the environment is rendered with the grunt file. Rendered
+ * files can be uploaded to you application manually or deployed
+ * automatically with the following scripts:
+ *
+ * grunt render:[ENVIRONMENT]
+ * grunt deploy:[ENVIRONMENT]
+ *
+ * Once deployed this file can be run with the following command:
+ *
+ * node userLoginWithSnippet.js
+ *
+ * You will see the snippet execute with the login of the user as specified
+ * from the command line and an object for that user created. The return value
+ * is checked to ensure the complete flow was successful.
+ *
+ * Feel free to login to the CloudMine dashboard with your developer credentials
+ * and navigate to the application and object browser. If you login as the user
+ * specified in this script and inspect the "User Data" tab, the created user
+ * object will be visible.
  */
 var cloudmine = require('cloudmine');
 var test = require("tap").test;
 
 // environment variables generated on render and deploy from config.js
-var applicationID = 'f60f2cb111514e809054b06282909307';
-var piiAPIKey = 'd67e7f788b1c4734b263e5ec81f650c4';
+var applicationID = '';
+var ePhiAPIKey = '';
 
-// a test user we will use for this workflow
+/**
+ * Test user we will use for this workflow. This script assumes the user has
+ * already been created. If the user doesn't exist the snippet will return
+ * an invalid login which prevents the server-side from executing as well
+ * since the snippet is run after the login event happens.
+ */
 var userCredentials = {
   username: 'testuser',
   email: 'testuser@cloudmine.me',
   password: 'testuser'
 };
 
-// CloudMine SDK for working with PII data
-// includes the snippet name and parameters for executing the call w/ snippet run.
-// uses the rackspace api root
-var wsPII = new cloudmine.WebService({
+/**
+ * CloudMine SDK for working with ePHI data includes the snippet name and
+ * parameters for executing the call w/ snippet run. This particular
+ * call is on the RackSpace infrastructure and thus the {apiroot} specifies
+ * this. If not specified the default root is the global CloudMine
+ * environment. Check your specific implementation details to know if a
+ * specific route needs to be used.
+ *
+ * @type {exports.WebService}
+ */
+var wsePhi = new cloudmine.WebService({
   apiroot:"https://rs.cloudmine.me",
   appname: "SnippetDemo",
   appversion: "1.0",
   appid: applicationID,
-  apikey: piiAPIKey,
+  apikey: ePhiAPIKey,
   applevel: false,
   snippet: 'userLogin',
   params: {
-    firstName: 'Test',
-    lastName: 'User',
+    dosage: '10mg',
     dob: '10/13/1984',
-    credentials: userCredentials
+    method: 'oral tablet'
   }
 });
 
 // TODO: Wrap in a tap test to check for success criteria
-wsPII.login(userCredentials).on("success", function (data, response) {
-    // inject responses in to credentials object
-  userCredentials.wsPII = wsPII;
-  //console.log(JSON.stringify(response, null, 2));
+wsePhi.login(userCredentials).on("success", function (data, response) {
+  console.log(JSON.stringify(data, null, 2));
 }).on("error", function (err) {
   console.log(JSON.stringify(err, null, 2));
 });

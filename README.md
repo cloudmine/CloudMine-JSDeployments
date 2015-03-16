@@ -36,4 +36,11 @@ Deploying snippets to an environment is done with the following command:
     grunt deploy:staging
     grunt deploy:dev
     
-If you ever accidentally commit the mast key, it is good practice to invalidate the key and redeploy with the newly created keys. 
+If you ever accidentally commit the master key, it is good practice to invalidate the key and redeploy with the newly created keys.
+
+## Running the examples
+For this project, it's basically a repository of common use cases for snippets. A script in the test folder for each environment should corresspond to a snippet in the src folder  by naming convention. I've tried my best to also document in each snippet the corresponding test script and visa versa. If not, please submit a pull request if you can identify or submit an issue if not.
+
+For example, the snippet titled *userCreation* can be debugged on request and response with the test file *userCreationWithSnippet*. This file when run will create a user and run a snippet which does some user initialization and returns the results.
+
+Some of the snippet which involve 3rd party integrations don't have a client side call because their run commands are dependent on 3rd party accounts outside the scope of CloudMine. These are meant to be for visual reference when integrating libraries from other developers and companies. However feel free to submit a pull request which illustrates the examples end-to-end.

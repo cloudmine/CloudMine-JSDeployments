@@ -4,14 +4,7 @@
 var cloudmine = require('cloudmine');
 
 var applicationID = "<%= appId %>";
-var piiAPIKey = "<%= piiKey %>";
-
-var results = {
-  success: [],
-  errors: []
-};
-
-exit('hello');
+var ePhiAPIKey = "<%= ePhiKey %>";
 
 // the parameter expectations from the test snippet
 if (data.params.firstName === 'Test'
@@ -45,22 +38,24 @@ if (!data.user_id) {
   results.success.push('user_id available');
 }
 
-var patientData = data.params;
-patientData.userType = 'Patient';
-patientData.__class__ = 'PII';
-patientData.email = data.params.credentials.email;
+var dosageData = data.params;
+dosageData.userType = 'Patient';
+dosageData.__class__ = 'PHI';
 
 // create the PII object and exit the results with the new object
-var wsPII = new cloudmine.WebService({
+var ws = new cloudmine.WebService({
   appname: "SnippetDemo",
   appversion: "1.0",
   appid: applicationID,
-  apikey: piiAPIKey,
+  apikey: ePhiAPIKey,
   applevel: false
 });
 
+/**
+ * Once the login executes and the snippet fires we eventually get down to here
+ */
 if (results.errors.length === 0) {
-  wsPII.update('testuserpiiobject', patientData, null).on('success', function (data) {
+  ws.set('testuserphiobject', dosageData, null).on('success', function (data) {
     results.data = data;
     exit(results);
   }).on('failed', function (data) {

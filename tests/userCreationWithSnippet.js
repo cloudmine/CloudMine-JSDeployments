@@ -10,7 +10,7 @@
  * specific to the user and expected by the application within the same
  * call. The API call returns the result of both the user creation call
  * and the snippet call with only one trip to the server. The snippet
- * being run is titled userInitilization.js and located within the
+ * being run is titled userCreation.js and located within the
  * /src folder of this repository.
  *
  * Instructions:
@@ -42,7 +42,7 @@ var applicationID = '';
 var piiAPIKey = '';
 
 /**
- * a test user we will use for this workflow
+ * Test user we will use for this workflow
  * Note that a create command for a user which already exists will return an
  * error dictating that the user already exists. The snippet will still run
  * so in a production environment the snippet should handle the case where a

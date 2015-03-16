@@ -9,7 +9,7 @@
   "author": "Ryan Donahue",
   "license": "ISC",
   "dependencies": {
-    "cloudmine": "^0.9.12",
+    "cloudmine": "^0.9.13",
     "fs": "0.0.2",
     "glob": "^4.3.5",
     "grunt": "^0.4.5",
@@ -17,6 +17,7 @@
     "grunt-ejs-render": "^0.2.7",
     "moment": "^2.9.0",
     "q": "^1.1.2",
+    "tap": "^0.7.1",
     "underscore": "^1.7.0"
   }
 }
