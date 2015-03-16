@@ -2,8 +2,8 @@
  * Created by Ryan Donahue.
  *
  * This sample shows a few different things regarding snippet execution
- * alongside user registration. A user is created, logged in, and a snippet is run
- * with the user login to illustrate some basic user object creation with the new
+ * alongside user login. An existing user is logged in, and a snippet is run
+ * to illustrate some basic user object creation with the new
  * user. Many apps require some stub configurations which make sense to be created
  * alongside the user.
  *
@@ -34,7 +34,7 @@ var wsPII = new cloudmine.WebService({
   appid: applicationID,
   apikey: piiAPIKey,
   applevel: false,
-  snippet: 'userCreation',
+  snippet: 'userLogin',
   params: {
     firstName: 'Test',
     lastName: 'User',
@@ -43,7 +43,7 @@ var wsPII = new cloudmine.WebService({
   }
 });
 
-
+// TODO: Wrap in a tap test to check for success criteria
 wsPII.login(userCredentials).on("success", function (data, response) {
     // inject responses in to credentials object
   userCredentials.wsPII = wsPII;
