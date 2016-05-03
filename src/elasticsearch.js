@@ -51,7 +51,11 @@ module.exports = function (request, reply) {
   }
 
   var ws = null;
-  // check if the token is null as an indicator of user level
+  /*
+  If a session token is present, pass it into the WebService constructor along with
+  user id if present and the query will be run at the user level. No session token
+  assumes the data resides at the application level.
+   */
   if (session_token !== null) {
     ws = new cm.WebService({
       appid: app_id,
