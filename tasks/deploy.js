@@ -124,7 +124,7 @@ function updateSnippet(options, snippet) {
 module.exports = function (grunt) {
   grunt.registerMultiTask('deploy', 'Deploys snippets to an app', function () {
     var options = this.options({
-      platformUrl: 'https://api.cloudmine.me'
+      platformUrl: 'https://api.cloudmine.io'
     });
 
     var done = this.async();

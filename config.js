@@ -6,8 +6,8 @@ values with the specific app to be implemented.
  */
 
 var thirdPartyConfig = {
-  thirdPartyId: '',
-  thirdPartyToken: ''
+  thirdPartyId: '1234567890',
+  thirdPartyToken: 'abcdefghijklm'
 };
 
 module.exports = {
@@ -45,13 +45,13 @@ module.exports = {
   },
 
   testing:{
-      appId: '',
-      apiKey: '',
+      appId: '8b4e458e94dd43d080b64953d068afbd',
+      apiKey: 'A030FC0120CD4D2C98A10861508CB54E',
       piiKey: '',
       ePhiKey: '',
-      masterKey: '',
+      masterKey: 'A030FC0120CD4D2C98A10861508CB54E',
       platformUrl: 'https://api.cloudmine.io',
       thirdPartyConfig: thirdPartyConfig,
       env: 'testing'
-  }
+    }
 };

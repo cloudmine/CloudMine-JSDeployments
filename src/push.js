@@ -6,6 +6,8 @@ var cloudmine = require('cloudmine');
 var applicationID = "<%= appId %>";
 var piiAPIKey = "<%= masterKey %>";
 var ePhiAPIKey = "<%= apiKey %>";
+var thirdPartyId = "<%= thirdPartyConfig.thirdPartyId %>";
+var thirdPartyToken = "<%= thirdPartyConfig.thirdPartyToken %>";
 
 // CloudMine SDK for working with PII data
 var wsPII = new cloudmine.WebService({
@@ -15,7 +17,7 @@ var wsPII = new cloudmine.WebService({
   apikey: piiAPIKey,
   applevel: false
 });
-var someTestKey = "<%= someTestKey %>";
+
 // CloudMine SDK for working with ePHI data
 var wsPHI = new cloudmine.WebService({
   appname: "SnippetDemo",

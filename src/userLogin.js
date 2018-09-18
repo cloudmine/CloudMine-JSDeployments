@@ -5,8 +5,8 @@ var cloudmine = require('cloudmine');
 
 var applicationID = "<%= appId %>";
 var ePhiAPIKey = "<%= apiKey %>";
-var someTestKey = "<%= someTestKey %>";
-
+var thirdPartyId = "<%= thirdPartyConfig.thirdPartyId %>";
+var thirdPartyToken = "<%= thirdPartyConfig.thirdPartyToken %>";
 
 // the parameter expectations from the test snippet
 if (data.params.firstName === 'Test'

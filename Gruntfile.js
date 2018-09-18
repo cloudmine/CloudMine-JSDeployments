@@ -39,6 +39,10 @@ module.exports = function (grunt) {
       staging: {
         options: get_config('staging'),
         files: files('staging')
+      },
+      testing: {
+        options: get_config('testing'),
+        files: files('testing')
       }
     },
 
@@ -51,6 +55,9 @@ module.exports = function (grunt) {
       },
       production: {
         options: get_config('production')
+      },
+      testing: {
+        options: get_config('testing')
       }
     }
   });
@@ -63,8 +70,10 @@ module.exports = function (grunt) {
   grunt.registerTask('dev', ['render:dev']);
   grunt.registerTask('production', ['render:production']);
   grunt.registerTask('staging', ['render:staging']);
+  grunt.registerTask('testing', ['render:testing']);
 
   grunt.registerTask('rd', ['render:dev', 'deploy:dev']);
+  grunt.registerTask('rd-testing', ['render:testing', 'deploy:testing']);
   grunt.registerTask('rd-dev', ['render:dev', 'deploy:dev']);
   grunt.registerTask('rd-production', ['render:production', 'deploy:production']);
   grunt.registerTask('rd-staging', ['render:staging', 'deploy:staging']);
