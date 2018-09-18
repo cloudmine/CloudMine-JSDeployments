@@ -4,8 +4,8 @@ var cloudmine = require('cloudmine');
 
 // environment variables generated on render and deploy from config.js
 var applicationID = "<%= appId %>";
-var piiAPIKey = "<%= piiKey %>";
-var ePhiAPIKey = "<%= ePhiKey %>";
+var piiAPIKey = "<%= masterKey %>";
+var ePhiAPIKey = "<%= apiKey %>";
 
 // CloudMine SDK for working with PII data
 var wsPII = new cloudmine.WebService({
@@ -15,6 +15,7 @@ var wsPII = new cloudmine.WebService({
   apikey: piiAPIKey,
   applevel: false
 });
+var someTestKey = "<%= someTestKey %>";
 // CloudMine SDK for working with ePHI data
 var wsPHI = new cloudmine.WebService({
   appname: "SnippetDemo",

@@ -16,6 +16,7 @@ var cloudmine = require('cloudmine');
 
 var applicationID = "<%= appId %>";
 var masterKey = "<%= masterKey %>";
+var someTestKey = "<%= someTestKey %>";
 
 // The calling script shows the params assumptions to be passed in
 var patientData = data.params;
