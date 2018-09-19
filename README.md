@@ -1,5 +1,5 @@
-# SnippetSamples
-Sample project which demonstrates a snippet workflow with CloudMine server code execution. Includes a configuration file for multiple environments, and a Grunt build file for deploying to different environment.
+# CloudMine JS Snippet Deployment Utility
+Sample CloudMine Snippet project which demonstrates a build workflow with CloudMine server code execution. Includes a configuration file for supporting multiple environments and secret/token injection at build time. 
 
 ##Project Initialization
 1. Clone the repository locally.
