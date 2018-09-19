@@ -1,9 +1,13 @@
-# SnippetSamples
-Sample project which demonstrates a snippet workflow with CloudMine server code execution. Includes a configuration file for multiple environments, and a Grunt build file for deploying to different environment.
+# CloudMine JS Snippet Deployment Utility
+Sample CloudMine Snippet project which supports a CI-CD style build workflow with CloudMine server code deployment capability. Includes a configuration file for supporting multiple environments and secret/token injection at build time before the snippets are uploaded to the server. 
+
+## Prerequisites 
+1. This was tested with node version 4.9.1 and NPM version 2.15.11. 
+2. `grunt` must be in your PATH file or installed globally via NPM. 
 
 ## Project Initialization
 1. Clone the repository locally.
-2. Ensure `grunt` is installed
+2. Ensure `grunt` is installed.
 
     `npm -g i grunt`
 
