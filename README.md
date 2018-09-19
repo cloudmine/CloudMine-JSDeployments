@@ -3,11 +3,15 @@ Sample project which demonstrates a snippet workflow with CloudMine server code 
 
 ## Project Initialization
 1. Clone the repository locally.
-2. Install the `node` modules, which are pinned to the correct versions.
+2. Ensure `grunt` is installed
+
+    `npm -g i grunt`
+
+3. Install the `node` modules, which are pinned to the correct versions.
 
     `npm install`
 
-3. Follow the configuration, build, and deployment instructions for establishing a workflow.
+4. Follow the configuration, build, and deployment instructions for establishing a workflow.
 
 ## Configuration
 Managing the configuration of the snippets for an application resides in the *config.js* file. There is two variables at the top for configurations specific to third party libraries which then get inserted into the configuration JSON shapes for the environments. This snippet library has three environments for which application ID, API keys and a master key can be setup. 
